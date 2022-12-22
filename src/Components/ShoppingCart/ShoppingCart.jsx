@@ -6,7 +6,7 @@ import { VscChromeClose } from "react-icons/vsc";
 import { successAlert } from '../../Alerts/alerts';
 
 export const ShoppingCart = () => {
-    const { shoppingCartQuantity, shoppingCartAllPrice, removeProductFromCart, cart } = useContext(CartContext);
+    const { updateQuantityShoppingCart, shoppingCartQuantity, shoppingCartAllPrice, removeProductFromCart, cart } = useContext(CartContext);
 
     const [show, setShow] = useState(false);
 
@@ -22,6 +22,10 @@ export const ShoppingCart = () => {
         successAlert("Product Deleted")
     }
 
+    const handleChange = (productid, e) => {
+        updateQuantityShoppingCart(productid, e.target.value);
+    }
+
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
@@ -34,13 +38,13 @@ export const ShoppingCart = () => {
 
             <Offcanvas show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Products</Offcanvas.Title>
+                    <Offcanvas.Title style={{ width: '100%', textAlign: 'center' }}>Products</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <Row>
                         {cart.map((el) => {
                             return (
-                                <Col sm={12} style={{ marginBottom: '1rem' }}>
+                                <Col sm={12} style={{ marginBottom: '1rem', padding: '1rem' }}>
                                     <div className="delete__ShoppingCart" style={{ position: 'relative', left: '85%', fontSize: '2rem' }}>
                                         <VscChromeClose onClick={() => handleDelete(el)} size={35} color={'red'} style={{ cursor: 'pointer' }} />
                                     </div>
@@ -50,10 +54,7 @@ export const ShoppingCart = () => {
                                     </div>
 
                                     <div className='shopping__Operations'>
-                                        <Button>+</Button>
-                                        <input type='number' defaultValue={el.quantity}></input>
-                                        <Button>-</Button>
-
+                                        <input style={{ borderRadius: '10px', textAlign: 'center', border: 'solid 1px' }} type='number' defaultValue={el.quantity} onChange={(e) => handleChange(el.id, e)} />
                                     </div>
                                 </Col>
                             )

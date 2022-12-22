@@ -41,8 +41,16 @@ export const CartProvider = ({ children }) => {
         setCart(cart);
     }
 
+    const updateQuantityShoppingCart = (productId, quantity) => {
+        const productoUpdate = cart.findIndex((el) => el.id === productId);
+        cart[productoUpdate].quantity = quantity;
+        setCart(cart);
+    }
+
     return (
-        <CartContext.Provider value={{ addToShoppingCart, shoppingCartQuantity, shoppingCartAllPrice, removeProductFromCart, cart, setCart }}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{ updateQuantityShoppingCart, addToShoppingCart, shoppingCartQuantity, shoppingCartAllPrice, removeProductFromCart, cart, setCart }}>
+            {children}
+        </CartContext.Provider>
     )
 }
 
