@@ -1,16 +1,27 @@
-import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import React, { useContext } from 'react'
+import { Card, Button, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { CartContext } from '../../Context/CartContext'
 
 export const CardComponent = (props) => {
+    const { addToShoppingCart } = useContext(CartContext);
+
+    const handleClick = (article) => {
+        addToShoppingCart(article)
+    }
+
     return (
-        <Card style={{ width: '15rem', padding: '1rem' }}>
-            <Card.Img variant="top" src={props.img} />
+        <Card style={{ width: '250px', padding: '2rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', height: 'max-content' }}>
+            <Card.Img variant="top" src={props.img} style={{ width: '100px' }} />
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
                     {props.text}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Row style={{ marginTop: '2rem' }}>
+                    <Link to={`/product/${props.id}`}><Button variant="primary">See product</Button></Link>
+                    <Button style={{ margin: '1rem 0' }} onClick={() => handleClick(props)} variant='success'>Add to cart</Button>
+                </Row>
             </Card.Body>
         </Card>
     )
