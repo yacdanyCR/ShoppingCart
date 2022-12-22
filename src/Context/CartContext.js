@@ -1,4 +1,5 @@
 import { createContext, useState } from "react"
+import { successAlert } from "../Alerts/alerts";
 
 export const CartContext = createContext();
 
@@ -19,6 +20,7 @@ export const CartProvider = ({ children }) => {
             cart[index].quantity += 1;
         }
 
+        successAlert("Product Added");
     }
 
     const shoppingCartQuantity = () => {

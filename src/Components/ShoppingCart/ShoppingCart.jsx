@@ -3,6 +3,7 @@ import { BsFillCartFill } from "react-icons/bs";
 import { Button, Col, Offcanvas, Row } from 'react-bootstrap'
 import { CartContext } from '../../Context/CartContext';
 import { VscChromeClose } from "react-icons/vsc";
+import { successAlert } from '../../Alerts/alerts';
 
 export const ShoppingCart = () => {
     const { shoppingCartQuantity, shoppingCartAllPrice, removeProductFromCart, cart } = useContext(CartContext);
@@ -15,6 +16,10 @@ export const ShoppingCart = () => {
     const handleDelete = (product) => {
         removeProductFromCart(product.id);
         setShow(false)
+        setTimeout(() => {
+            setShow(true)
+        }, 0);
+        successAlert("Product Deleted")
     }
 
     return (
