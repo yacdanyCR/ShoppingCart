@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { BsFillCartFill } from "react-icons/bs";
 import { Button, Col, Offcanvas, Row } from 'react-bootstrap'
 import { CartContext } from '../../Context/CartContext';
