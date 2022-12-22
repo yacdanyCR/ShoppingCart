@@ -59,7 +59,7 @@ export const ShoppingCart = () => {
                             )
                         })}
                     </Row>
-                    <h1>{shoppingCartAllPrice()}$</h1>
+                    <h3>{shoppingCartAllPrice()}$</h3>
                 </Offcanvas.Body>
             </Offcanvas>
         </>
