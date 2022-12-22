@@ -12,6 +12,15 @@ const getProducts = async () => {
     }
 }
 
+const getIdProduct = async (id) => {
+    try {
+        return await axios.get(getUrl + "/" + id).then((result) => result.data);
+    } catch (error) {
+        throw error
+    }
+}
+
 export {
-    getProducts
+    getProducts,
+    getIdProduct
 }
