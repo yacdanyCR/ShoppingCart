@@ -11,14 +11,14 @@ export const CardComponent = (props) => {
     }
 
     return (
-        <Card style={{ width: '250px', padding: '2rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', height: 'max-content' }}>
+        <Card style={{ width: '250px', padding: '1rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', height: 'fit-auto' }}>
             <Card.Img variant="top" src={props.img} style={{ width: '100px' }} />
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Text>
                     {props.text}
                 </Card.Text>
-                <Row style={{ marginTop: '2rem' }}>
+                <Row style={{ marginTop: '2rem', width: '100%', textAlign: 'center' }}>
                     <Link to={`/product/${props.id}`}><Button variant="primary">See product</Button></Link>
                     <Button style={{ margin: '1rem 0' }} onClick={() => handleClick(props)} variant='success'>Add to cart</Button>
                 </Row>

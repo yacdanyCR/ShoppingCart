@@ -20,7 +20,16 @@ const getIdProduct = async (id) => {
     }
 }
 
+const getCategorieProduct = async (categorie) => {
+    try {
+        return await axios.get(getUrl + '/category/' + categorie).then((result) => result)
+    } catch (error) {
+        throw error;
+    }
+}
+
 export {
     getProducts,
-    getIdProduct
+    getIdProduct,
+    getCategorieProduct
 }

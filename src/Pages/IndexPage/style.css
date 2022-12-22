@@ -1,0 +1,13 @@
+.products__Section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products__Section .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+}
