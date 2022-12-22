@@ -16,7 +16,7 @@ export const IndexPage = () => {
                         : products.map((el) => {
                             return (
                                 <div className='product__Card' key={el.id}>
-                                    <CardComponent img={el.image} title={el.title} text={el.text} id={el.id} />
+                                    <CardComponent img={el.image} title={el.title} text={el.text} id={el.id} price={el.price} />
                                 </div>
                             )
                         })}
