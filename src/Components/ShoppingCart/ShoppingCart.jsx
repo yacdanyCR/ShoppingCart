@@ -24,6 +24,10 @@ export const ShoppingCart = () => {
 
     const handleChange = (productid, e) => {
         updateQuantityShoppingCart(productid, e.target.value);
+        setShow(false)
+        setTimeout(() => {
+            setShow(true)
+        }, 0);
     }
 
     return (
@@ -32,7 +36,7 @@ export const ShoppingCart = () => {
                 <BsFillCartFill size={20} />
             </Button>
 
-            <div style={{ position: 'relative', right: '1rem', top: '1rem', padding: '2px', width: '20px', textAlign: 'center', borderRadius: '20px', background: 'red' }}>
+            <div style={{ position: 'relative', bottom: '1rem', padding: '2px', width: '20px', textAlign: 'center', borderRadius: '20px', background: 'red' }}>
                 <span>{shoppingCartQuantity()}</span>
             </div>
 
@@ -53,7 +57,7 @@ export const ShoppingCart = () => {
                                         <img src={el.img} alt="img_Product" style={{ width: '100px' }} />
                                     </div>
 
-                                    <div className='shopping__Operations'>
+                                    <div className='shopping__Operations' style={{ marginTop: '1rem' }}>
                                         <input style={{ borderRadius: '10px', textAlign: 'center', border: 'solid 1px' }} type='number' defaultValue={el.quantity} onChange={(e) => handleChange(el.id, e)} />
                                     </div>
                                 </Col>

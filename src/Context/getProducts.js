@@ -7,13 +7,6 @@ export const ProductsProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [categories, setCategories] = useState([]);
 
-    useEffect(() => {
-        getProducts().then((data) => {
-            setProducts(data);
-            getProductCategories(data);
-        });
-    }, [])
-
     const getProductCategories = (data) => {
         const categories = []
         data.forEach(element => categories.push(element.category));
@@ -22,8 +15,16 @@ export const ProductsProvider = ({ children }) => {
         setCategories(uniqueCategories);
     }
 
+    useEffect(() => {
+        getProducts().then((data) => {
+            getProductCategories(data);
+        });
+    }, [])
+
+
+
     return (
-        <ProductsContext.Provider value={{ products, categories }}>{children}</ProductsContext.Provider>
+        <ProductsContext.Provider value={{ products, categories, setProducts, getProductCategories }}>{children}</ProductsContext.Provider>
     )
 }
 

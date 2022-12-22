@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
             })
         } else {
             const index = cart.findIndex((el) => el.id === productObj.id);
-            cart[index].quantity += 1;
+            cart[index].quantity++;
         }
 
         successAlert("Product Added");
@@ -38,13 +38,11 @@ export const CartProvider = ({ children }) => {
     const removeProductFromCart = (id) => {
         const prodictToRemove = cart.findIndex((el) => el.id === id);
         cart.splice(prodictToRemove, 1);
-        setCart(cart);
     }
 
     const updateQuantityShoppingCart = (productId, quantity) => {
         const productoUpdate = cart.findIndex((el) => el.id === productId);
         cart[productoUpdate].quantity = quantity;
-        setCart(cart);
     }
 
     return (
