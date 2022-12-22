@@ -13,9 +13,9 @@ export const NavBarComponent = () => {
                 <Navbar.Brand href="#home"><img src={jslogo} alt="navbarlogo" style={{ width: '100px' }} /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
                         <Link to={'/'}>Home</Link>
-                        <Link href="#link">About</Link>
+                        <Link href="#link" >About</Link>
                         <NavDropdown title="Categories" id="basic-nav-dropdown">
                             {categories.map((el, index) => {
                                 return (
