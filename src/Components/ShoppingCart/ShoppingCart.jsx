@@ -31,7 +31,7 @@ export const ShoppingCart = () => {
                             return (
                                 <Col sm={12}>
                                     <h1>{el.title}</h1>
-                                    <img src={el.img} alt="" />
+                                    <img src={el.img} alt="img_Product" />
                                 </Col>
                             )
                         })}
