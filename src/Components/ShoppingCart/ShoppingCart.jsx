@@ -24,6 +24,10 @@ export const ShoppingCart = () => {
 
     const handleChange = (productid, e) => {
         updateQuantityShoppingCart(productid, e.target.value);
+        setShow(false)
+        setTimeout(() => {
+            setShow(true)
+        }, 0);
     }
 
     return (
