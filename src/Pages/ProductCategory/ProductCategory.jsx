@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getCategorieProduct } from '../../Api/StoreApi/StoreApi';
 import LoaderComponent from '../../Components/LoaderComponent/LoaderComponent';
 import CardComponent from '../../Components/CardComponent/CardComponent';
+import { ProductsContext } from '../../Context/getProducts';
 
 export const ProductCategory = () => {
+    const { products, setProducts } = useContext(ProductsContext);
     const { categorie } = useParams();
-    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         getCategorieProduct(categorie).then((result) => setProducts(result.data));
-    }, [categorie])
+        console.log("cambio")
+    }, [categorie, setProducts])
 
     return (
         <section>
@@ -21,7 +23,7 @@ export const ProductCategory = () => {
                         : products.map((el) => {
                             return (
                                 <div className='product__Card' key={el.id}>
-                                    <CardComponent img={el.image} title={el.title} text={el.text} id={el.id} />
+                                    <CardComponent img={el.image} title={el.title} text={el.text} id={el.id} price={el.price} />
                                 </div>
                             )
                         })}
