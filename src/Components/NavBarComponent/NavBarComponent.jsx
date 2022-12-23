@@ -14,13 +14,13 @@ export const NavBarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-                        <Link to={'/'}>Home</Link>
-                        <Link href="#link" >About</Link>
-                        <NavDropdown title="Categories" id="basic-nav-dropdown">
+                        <Link to={'/'} style={{ color: 'black' }}>Home</Link>
+                        <Link href="#link" style={{ color: 'black' }}>About</Link>
+                        <NavDropdown style={{ color: 'black' }} title="Categories" id="basic-nav-dropdown">
                             {categories.map((el, index) => {
                                 return (
                                     <NavDropdown.Item key={index}>
-                                        <Link to={`products/category/${el}`}>{el}</Link>
+                                        <Link style={{ color: 'black' }} to={`products/category/${el}`}>{el}</Link>
                                     </NavDropdown.Item>
                                 )
                             })}
