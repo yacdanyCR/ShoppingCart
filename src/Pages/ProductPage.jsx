@@ -20,7 +20,7 @@ export const ProductPage = () => {
     return (
         <section>
             <Container>
-                <Row>
+                <Row style={{ marginTop: '3rem' }}>
                     {loading
                         ? <Col md={12}><LoaderComponent /></Col>
                         : <>

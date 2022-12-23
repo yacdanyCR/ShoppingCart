@@ -11,7 +11,6 @@ export const IndexPage = () => {
     useEffect(() => {
         getProducts().then((data) => {
             setProducts(data);
-            console.log("cambio")
         });
     }, [])
 
